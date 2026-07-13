@@ -1,0 +1,57 @@
+/* =========================================================
+   about.css
+   Page-specific styles for about.html ONLY.
+   Load AFTER global.css.
+   ========================================================= */
+
+.about-container h1 {
+    font-size: 36px;
+    color: var(--color-dark);
+    margin-bottom: 16px;
+}
+
+.about-container h2 {
+    font-size: 28px;
+    color: var(--color-dark);
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+
+.about-container p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* SAFE mission list */
+.mission-list {
+    list-style: none;
+    margin-top: 8px;
+}
+
+.mission-list li {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.mission-list strong {
+    color: var(--color-accent);
+    font-size: 20px;
+    margin-right: 4px;
+}
+
+@media (max-width: 700px) {
+    .about-container h1 {
+        font-size: 28px;
+    }
+
+    .about-container h2 {
+        font-size: 22px;
+    }
+
+    .about-container p,
+    .mission-list li {
+        font-size: 16px;
+    }
+}

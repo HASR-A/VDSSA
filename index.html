@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Victoria Drive Safety Society Alliance is a non-profit bridging community, public agencies, and law enforcement to build a safer neighbourhood.">
+    <title>Home | Victoria Drive Safety Society Alliance</title>
+    <!-- global.css first (shared), then this page's own file -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="background">
+
+    <!-- ============ HEADER / NAV — same block on every page ============ -->
+    <header class="header">
+        <div class="logo"><img class="logo-img" src="images/VDSSA_Logo.png" alt="VDSSA logo"></div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Keeping Our Community Safe</h1>
+                <p>We're a community driven initiative dedicated to creating safer neighbourhoods.</p>
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+            </div>
+            <div class="hero-image">
+                <img id="hero" href="images/background1.png" alt="board photo">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ IMAGE CAROUSEL ============ -->
+    <!-- Driven by js/main.js — no Bootstrap dependency needed -->
+    <div class="carousel" aria-roledescription="carousel" aria-label="Community event photos">
+        <div class="carousel-inner">
+            <div class="carousel-item active" aria-hidden="false">
+                <img src="images/event_img1.png" alt="Community event photo 1">
+            </div>
+            <div class="carousel-item" aria-hidden="true">
+                <img src="images/event_img2.png" alt="Community event photo 2" loading="lazy">
+            </div>
+            <div class="carousel-item" aria-hidden="true">
+                <img src="images/event_img3.png" alt="Community event photo 3" loading="lazy">
+            </div>
+        </div>
+        <ol class="carousel-indicators">
+            <li data-slide-to="0" class="active" aria-label="Show slide 1"></li>
+            <li data-slide-to="1" aria-label="Show slide 2"></li>
+            <li data-slide-to="2" aria-label="Show slide 3"></li>
+        </ol>
+        <button class="carousel-control-prev" aria-label="Previous slide">
+            <span class="sr-only">Previous</span>
+        </button>
+        <button class="carousel-control-next" aria-label="Next slide">
+            <span class="sr-only">Next</span>
+        </button>
+    </div>
+
+    <!-- ============ INFO / FEATURE GRID ============ -->
+    <section class="info">
+        <h2>Some random information.</h2>
+        <div class="info-container">
+            <div class="info-item">
+                <div class="info-box"></div>
+                <p>this is some subtext under an illustration or image</p>
+            </div>
+            <div class="info-item">
+                <div class="info-box"></div>
+                <p>this is some subtext under an illustration or image</p>
+            </div>
+            <div class="info-item">
+                <div class="info-box"></div>
+                <p>this is some subtext under an illustration or image</p>
+            </div>
+            <div class="info-item">
+                <div class="info-box"></div>
+                <p>this is some subtext under an illustration or image</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ QUOTE / TESTIMONIAL ============ -->
+    <section class="quote">
+        <div class="quote-container">
+            <p class="quote-text">This is an inspiring quote, or a testimonial from a customer. Maybe it's just filling up space, or maybe people will actually read it. Who knows? All I know is that it looks nice.</p>
+            <p class="quote-author">-Chris</p>
+        </div>
+    </section>
+
+    <!-- ============ CALL TO ACTION ============ -->
+    <section class="cta">
+        <div class="cta-container">
+            <div class="cta-text">
+                <h3>Want to help out your community?</h3>
+                <p>Volunteer and join us!</p>
+            </div>
+            <a href="contact.html" class="btn btn-outline">Volunteer</a>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER — same block on every page ============ -->
+    <footer class="footer">
+        <p>&copy; 2026 Victoria Drive Safety Society Alliance</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

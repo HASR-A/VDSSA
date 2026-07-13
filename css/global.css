@@ -1,0 +1,279 @@
+/* =========================================================
+   global.css
+   Shared across EVERY page: index, about, contact, events.
+   Load this FIRST, then load the page-specific stylesheet.
+
+   Anything that appears on more than one page (header, nav,
+   footer, buttons, base typography) lives here so you only
+   edit it once. Anything unique to a single page (hero,
+   info grid, contact form, events list, etc.) belongs in
+   that page's own CSS file instead.
+   ========================================================= */
+
+/* -----------------------------------------------------
+   COLOR PALETTE — sky blue is the primary/accent colour,
+   paired with a deep navy for header/footer/text so the
+   accent has something to pop against. Change these while
+   in staging and the whole site updates. Nothing else in
+   these files should use a raw hex code; everything points
+   back here.
+   ----------------------------------------------------- */
+:root {
+    --color-dark: #1E293B;          /* navy — header, footer, headings */
+    --color-light: #F0F9FF;         /* pale sky tint — light backgrounds, text-on-dark */
+    --color-accent: #0284C7;        /* sky blue — buttons, links, highlights (PRIMARY) */
+    --color-accent-hover: #075985;  /* deeper sky blue for hover states */
+    --color-accent-onDark: #38BDF8; /* brighter sky blue, readable against the navy header/footer */
+    --color-white: #ffffff;
+    --color-muted: #64748B;         /* placeholder boxes / muted fills */
+    --color-border: #E2E8F0;
+
+    /* System font stack: renders instantly with no extra network
+       request, which matters a lot for mobile performance. */
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    /* consistent side padding used by every full-width section,
+       scaled down for smaller screens further below */
+    --page-padding: 200px;
+}
+
+/* -----------------------------------------------------
+   RESET
+   ----------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.background {
+    background-image: url("../images/background1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed is expensive to paint on mobile
+       (and unsupported on iOS Safari), so it's applied only on
+       larger screens in the media query below. */
+}
+
+@media (min-width: 900px) {
+    .background {
+        background-attachment: fixed;
+    }
+}
+
+body {
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+    color: var(--color-dark);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+}
+
+/* Generic container for simple content pages (about, contact) */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+/* -----------------------------------------------------
+   HEADER / NAV — identical markup expected on every page
+   ----------------------------------------------------- */
+.header {
+    background-color: var(--color-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px var(--page-padding);
+    position: relative;
+}
+
+.logo-img {
+    width: 130px;
+    height: auto;
+    min-width: 35px;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    font-size: 18px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--color-light);
+    transition: color 0.15s ease;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+    color: var(--color-accent-onDark);
+}
+
+/* highlight whichever nav link matches the current page */
+.menu a.active {
+    color: var(--color-accent-onDark);
+    font-weight: bold;
+}
+
+/* Hamburger toggle — hidden on desktop, shown on mobile below */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-white);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* -----------------------------------------------------
+   SHARED BUTTON STYLE — use .btn on any page, then layer
+   .btn-primary (solid accent) or .btn-outline (transparent)
+   ----------------------------------------------------- */
+.btn {
+    display: inline-block;
+    border-radius: 8px;
+    padding: 8px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+}
+
+/* -----------------------------------------------------
+   FOOTER
+   ----------------------------------------------------- */
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    text-align: center;
+    padding: 24px var(--page-padding);
+    font-size: 14px;
+}
+
+.footer p {
+    margin-bottom: 4px;
+}
+
+/* =========================================================
+   RESPONSIVE — mobile-first adjustments shared by all pages.
+   Page padding scales down gradually so nothing ever touches
+   the screen edge, and the nav collapses into a hamburger menu
+   under 800px.
+   ========================================================= */
+@media (max-width: 1100px) {
+    :root { --page-padding: 60px; }
+}
+
+@media (max-width: 800px) {
+    :root { --page-padding: 20px; }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-dark);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+        z-index: 20;
+    }
+
+    .menu.open {
+        max-height: 320px;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 0;
+        font-size: 17px;
+    }
+
+    .menu ul li {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .menu ul li a {
+        display: block;
+        padding: 16px var(--page-padding);
+    }
+
+    .container {
+        padding: 48px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        width: 100px;
+    }
+}

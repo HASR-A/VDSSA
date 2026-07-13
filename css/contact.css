@@ -1,0 +1,94 @@
+/* =========================================================
+   contact.css
+   Page-specific styles for contact.html ONLY.
+   Load AFTER global.css.
+   ========================================================= */
+
+.contact-container h1 {
+    font-size: 36px;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+}
+
+.contact-container > p {
+    font-size: 18px;
+    margin-bottom: 32px;
+}
+
+/* ---------- Form ---------- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--color-dark);
+}
+
+.form-group input,
+.form-group textarea {
+    font-family: var(--font-body);
+    font-size: 16px; /* 16px prevents iOS Safari from auto-zooming on focus */
+    padding: 10px 12px;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.form-group textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.contact-form .btn {
+    align-self: flex-start;
+    margin-top: 8px;
+    min-height: 44px; /* comfortable tap target on touch screens */
+}
+
+/* ---------- Direct contact details ---------- */
+.contact-details {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+}
+
+.contact-details p {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.contact-details a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+    .contact-container h1 {
+        font-size: 28px;
+    }
+
+    .contact-form .btn {
+        align-self: stretch;
+        text-align: center;
+    }
+}
