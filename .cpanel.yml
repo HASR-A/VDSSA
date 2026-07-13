@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/victorx4/public_html/vdssa-website
+    - export DEPLOYPATH=/home2/victorx4/public_html/vdssa-live
     - /bin/cp -r * $DEPLOYPATH
