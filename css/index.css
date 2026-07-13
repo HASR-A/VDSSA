@@ -19,7 +19,7 @@
 
 .hero-text {
     flex: 1;
-    color: var(--color-light);
+    color: var(--color-dark);
 }
 
 .hero-text h1 {

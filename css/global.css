@@ -95,7 +95,7 @@ a {
    HEADER / NAV — identical markup expected on every page
    ----------------------------------------------------- */
 .header {
-    background-color: var(--color-dark);
+    background-color: var( --color-accent-onDark);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -124,12 +124,12 @@ a {
 
 .menu a:hover,
 .menu a:focus-visible {
-    color: var(--color-accent-onDark);
+    color: var(--color-accent-hover);
 }
 
 /* highlight whichever nav link matches the current page */
 .menu a.active {
-    color: var(--color-accent-onDark);
+    color: var(--color-accent-hover);
     font-weight: bold;
 }
 
